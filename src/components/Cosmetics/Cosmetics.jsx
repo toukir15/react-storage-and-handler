@@ -1,22 +1,25 @@
-import React from "react";
-import { add, multiple } from "../../utilites/calculate";
-import Cosmatic from "../Cosmatic/Cosmatic";
+import React, { useEffect, useState } from "react";
+// import { add, multiple } from "../../utilites/calculate";
+import Cosmetic from "../Cosmetic/Cosmetic";
 
 const Cosmetics = () => {
-  const Cosmetics = [
-    { id: 1, name: "Alta", price: 100 },
-    { id: 2, name: "Palish", price: 200 },
-    { id: 3, name: "Masish", price: 300 },
-    { id: 4, name: "Balish", price: 400 },
-    { id: 5, name: "Salish", price: 500 },
-  ];
+  const [cosmetics, setCosmetics] = useState([]);
+  console.log(cosmetics);
+  useEffect(() => {
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((data) => setCosmetics(data));
+  }, []);
   return (
     <div>
-      <h1>Welcome to my cosmatic shop</h1>
-      {Cosmetics.map((cosmatic) => (
-        <Cosmatic key={cosmatic.id} cosmatic={cosmatic} />
-      ))}
+      <h1>Welcome to my cosmetic shop</h1>
+      {cosmetics.map((cosmetic) => console.log(cosmetic))}
+
+      {/* {cosmetics.map((cosmetic) => (
+        <Cosmetic key={cosmetic.id} cosmetic={cosmetic} />
+      ))} */}
     </div>
+    console.log(object);
   );
 };
 

@@ -1,14 +1,15 @@
 import React from "react";
 
-const Cosmatic = (props) => {
+const Cosmetic = (props) => {
   console.log(props);
-  const { name, id, price } = props.cosmatic;
+  const { name, id, price } = props.cosmetic;
   return (
     <div>
       <h1>Buy this: {name}</h1>
       <p>Only for: {price}</p>
+      <p>It has ID: {id}</p>
     </div>
   );
 };
 
-export default Cosmatic;
+export default Cosmetic;
